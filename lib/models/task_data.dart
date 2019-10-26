@@ -1,12 +1,14 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:todoey_flutter/models/task.dart';
 
-class Tasks extends ChangeNotifier {
+class TaskData extends ChangeNotifier {
   List<Task> tasks = [
     Task(name: 'Buy mail'),
     Task(name: 'Buy eggs'),
     Task(name: 'Buy bread'),
   ];
+
+  int get taskCount => tasks.length;
 
   void toggleTaskDone(Task task) {
     task.toggleDone();

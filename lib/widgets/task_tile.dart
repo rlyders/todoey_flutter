@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todoey_flutter/models/tasks.dart';
+import 'package:todoey_flutter/models/task_data.dart';
 import 'package:todoey_flutter/models/task.dart';
 
 class TaskTile extends StatelessWidget {
@@ -22,7 +22,7 @@ class TaskTile extends StatelessWidget {
         activeColor: Colors.lightBlueAccent,
         value: task.isDone,
         onChanged: (newValue) {
-          Provider.of<Tasks>(context).toggleTaskDone(task);
+          Provider.of<TaskData>(context).toggleTaskDone(task);
         },
       ),
     );
