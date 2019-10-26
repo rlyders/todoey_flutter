@@ -10,21 +10,23 @@ class TaskTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Text(
-        task.name,
-        style: TextStyle(
-          fontSize: 18.0,
-          decoration: task.isDone ? TextDecoration.lineThrough : null,
+    return Consumer<TaskData>(builder: (context, taskData, child) {
+      return ListTile(
+        leading: Text(
+          task.name,
+          style: TextStyle(
+            fontSize: 18.0,
+            decoration: task.isDone ? TextDecoration.lineThrough : null,
+          ),
         ),
-      ),
-      trailing: Checkbox(
-        activeColor: Colors.lightBlueAccent,
-        value: task.isDone,
-        onChanged: (newValue) {
-          Provider.of<TaskData>(context).toggleTaskDone(task);
-        },
-      ),
-    );
+        trailing: Checkbox(
+          activeColor: Colors.lightBlueAccent,
+          value: task.isDone,
+          onChanged: (newValue) {
+            taskData.toggleTaskDone(task);
+          },
+        ),
+      );
+    });
   }
 }
