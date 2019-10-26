@@ -23,7 +23,7 @@ class TaskTile extends StatelessWidget {
           activeColor: Colors.lightBlueAccent,
           value: task.isDone,
           onChanged: (newValue) {
-            taskData.toggleTaskDone(task);
+            taskData.updateTask(task);
           },
         ),
       );
